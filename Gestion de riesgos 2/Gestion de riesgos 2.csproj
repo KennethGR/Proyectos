@@ -1,0 +1,454 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D8498285-72E6-45F1-AA04-3A77817AB9B8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gestion_de_riesgos_2</RootNamespace>
+    <AssemblyName>Gestion de riesgos 2</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Administracion.aspx" />
+    <Content Include="agregarAdmi.aspx" />
+    <Content Include="agregaranalisis1.aspx" />
+    <Content Include="agregaridentriesgoG.aspx" />
+    <Content Include="agregarriesgoespecifico.aspx" />
+    <Content Include="AgregarRiesgoGeneral.aspx" />
+    <Content Include="agregarusuario.aspx" />
+    <Content Include="Analisis.aspx" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\main.css" />
+    <Content Include="DiccionarioG.aspx" />
+    <Content Include="editaradmi.aspx" />
+    <Content Include="editarana.aspx" />
+    <Content Include="EditarDiccionario.aspx" />
+    <Content Include="Editaridentgeneral.aspx" />
+    <Content Include="Editarriesgoespecifico.aspx" />
+    <Content Include="editarusuario.aspx" />
+    <Content Include="Especificos.aspx" />
+    <Content Include="Generales.aspx" />
+    <Content Include="GestionRiesgosSitios.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GestionRiesgosSitios.edmx</DependentUpon>
+      <LastGenOutput>GestionRiesgosSitios.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="GestionRiesgosSitios.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GestionRiesgosSitios.edmx</DependentUpon>
+      <LastGenOutput>GestionRiesgosSitios.cs</LastGenOutput>
+    </Content>
+    <Content Include="images\imagen1.jpg" />
+    <Content Include="images\imagen2.jpg" />
+    <Content Include="images\imagen3.png" />
+    <Content Include="images\imagen4.jpg" />
+    <Content Include="images\logo-cuc-negro.png" />
+    <Content Include="images\logo_cuc.png" />
+    <Content Include="Login.aspx" />
+    <Content Include="index.aspx" />
+    <Content Include="js\breakpoints.min.js" />
+    <Content Include="js\browser.min.js" />
+    <Content Include="js\jquery.dropotron.min.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\jquery.scrollex.min.js" />
+    <Content Include="js\jquery.scrolly.min.js" />
+    <Content Include="js\main.js" />
+    <Content Include="js\util.js" />
+    <Content Include="MantAdministracion.aspx" />
+    <Content Include="MantAnalisis.aspx" />
+    <Content Include="MantDiccionario.aspx" />
+    <Content Include="MantEspecificos.aspx" />
+    <Content Include="MantGenerales.aspx" />
+    <Content Include="Registro.aspx" />
+    <Content Include="RiesgoInherente.aspx" />
+    <Content Include="MantUsuarios.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Administracion.aspx.cs">
+      <DependentUpon>Administracion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administracion.aspx.designer.cs">
+      <DependentUpon>Administracion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion1.cs">
+      <DependentUpon>GestionRiesgosSitios.tt</DependentUpon>
+    </Compile>
+    <Compile Include="agregarAdmi.aspx.cs">
+      <DependentUpon>agregarAdmi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="agregarAdmi.aspx.designer.cs">
+      <DependentUpon>agregarAdmi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="agregaranalisis1.aspx.cs">
+      <DependentUpon>agregaranalisis1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="agregaranalisis1.aspx.designer.cs">
+      <DependentUpon>agregaranalisis1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="agregaridentriesgoG.aspx.cs">
+      <DependentUpon>agregaridentriesgoG.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="agregaridentriesgoG.aspx.designer.cs">
+      <DependentUpon>agregaridentriesgoG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="agregarriesgoespecifico.aspx.cs">
+      <DependentUpon>agregarriesgoespecifico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="agregarriesgoespecifico.aspx.designer.cs">
+      <DependentUpon>agregarriesgoespecifico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarRiesgoGeneral.aspx.cs">
+      <DependentUpon>AgregarRiesgoGeneral.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarRiesgoGeneral.aspx.designer.cs">
+      <DependentUpon>AgregarRiesgoGeneral.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="agregarusuario.aspx.cs">
+      <DependentUpon>agregarusuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="agregarusuario.aspx.designer.cs">
+      <DependentUpon>agregarusuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Analisis.aspx.cs">
+      <DependentUpon>Analisis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Analisis.aspx.designer.cs">
+      <DependentUpon>Analisis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DiccionarioG.aspx.cs">
+      <DependentUpon>DiccionarioG.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DiccionarioG.aspx.designer.cs">
+      <DependentUpon>DiccionarioG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DiccionarioRiesgosEspecifico.cs">
+      <DependentUpon>GestionRiesgosSitios.tt</DependentUpon>
+    </Compile>
+    <Compile Include="editaradmi.aspx.cs">
+      <DependentUpon>editaradmi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editaradmi.aspx.designer.cs">
+      <DependentUpon>editaradmi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="editarana.aspx.cs">
+      <DependentUpon>editarana.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editarana.aspx.designer.cs">
+      <DependentUpon>editarana.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditarDiccionario.aspx.cs">
+      <DependentUpon>EditarDiccionario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditarDiccionario.aspx.designer.cs">
+      <DependentUpon>EditarDiccionario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Editaridentgeneral.aspx.cs">
+      <DependentUpon>Editaridentgeneral.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Editaridentgeneral.aspx.designer.cs">
+      <DependentUpon>Editaridentgeneral.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Editarriesgoespecifico.aspx.cs">
+      <DependentUpon>Editarriesgoespecifico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Editarriesgoespecifico.aspx.designer.cs">
+      <DependentUpon>Editarriesgoespecifico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="editarusuario.aspx.cs">
+      <DependentUpon>editarusuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editarusuario.aspx.designer.cs">
+      <DependentUpon>editarusuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Especificos.aspx.cs">
+      <DependentUpon>Especificos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Especificos.aspx.designer.cs">
+      <DependentUpon>Especificos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Evaluacion_y_Analisis.cs">
+      <DependentUpon>GestionRiesgosSitios.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Generales.aspx.cs">
+      <DependentUpon>Generales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Generales.aspx.designer.cs">
+      <DependentUpon>Generales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionRiesgosSitios.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestionRiesgosSitios.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GestionRiesgosSitios.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestionRiesgosSitios.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GestionRiesgosSitios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestionRiesgosSitios.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Ident_Riesgos_Especificos.cs">
+      <DependentUpon>GestionRiesgosSitios.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ident_Riesgos_Generales.cs">
+      <DependentUpon>GestionRiesgosSitios.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MantAdministracion.aspx.cs">
+      <DependentUpon>MantAdministracion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MantAdministracion.aspx.designer.cs">
+      <DependentUpon>MantAdministracion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MantAnalisis.aspx.cs">
+      <DependentUpon>MantAnalisis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MantAnalisis.aspx.designer.cs">
+      <DependentUpon>MantAnalisis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MantDiccionario.aspx.cs">
+      <DependentUpon>MantDiccionario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MantDiccionario.aspx.designer.cs">
+      <DependentUpon>MantDiccionario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MantEspecificos.aspx.cs">
+      <DependentUpon>MantEspecificos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MantEspecificos.aspx.designer.cs">
+      <DependentUpon>MantEspecificos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MantGenerales.aspx.cs">
+      <DependentUpon>MantGenerales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MantGenerales.aspx.designer.cs">
+      <DependentUpon>MantGenerales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registro.aspx.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registro.aspx.designer.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RiesgoInherente.aspx.cs">
+      <DependentUpon>RiesgoInherente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RiesgoInherente.aspx.designer.cs">
+      <DependentUpon>RiesgoInherente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MantUsuarios.aspx.cs">
+      <DependentUpon>MantUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MantUsuarios.aspx.designer.cs">
+      <DependentUpon>MantUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario.cs">
+      <DependentUpon>GestionRiesgosSitios.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="GestionRiesgosSitios.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GestionRiesgosSitios.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="GestionRiesgosSitios.edmx.diagram">
+      <DependentUpon>GestionRiesgosSitios.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile10.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile11.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile12.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile13.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile14.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile15.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile16.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile17.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile18.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile19.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile2.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile20.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile21.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile22.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile23.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile24.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile25.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile26.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile27.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile28.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile29.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile3.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile30.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile31.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile32.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile33.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile34.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile35.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile36.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile4.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile5.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile6.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile7.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile8.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile9.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50694</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50694/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

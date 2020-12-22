@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GestionRiesgosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Administracion1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="50" />
+          <Property Name="Evento" Type="varchar" MaxLength="150" />
+          <Property Name="Tipo de riesgo" Type="nvarchar" MaxLength="255" />
+          <Property Name="Tolerancia del Riesgo" Type="nvarchar" MaxLength="255" />
+          <Property Name="NiveldelRiesgo inherente" Type="float" />
+          <Property Name="NiveldelRiesgoResidual1" Type="float" />
+          <Property Name="Grado de afectación" Type="nvarchar" MaxLength="255" />
+          <Property Name="Importancia del Objetivo del Proceso (actividades, tareas)" Type="nvarchar" MaxLength="255" />
+          <Property Name="Variacióndelniveldelriesgoconcontroles" Type="float" />
+          <Property Name="Análisis costo/beneficio" Type="varchar" MaxLength="50" />
+          <Property Name="Aceptabilidad del riesgo" Type="nvarchar" MaxLength="255" />
+          <Property Name="Resultado de la evaluación" Type="nvarchar" MaxLength="255" />
+          <Property Name="NiveldelRiesgoresidual2" Type="float" />
+        </EntityType>
+        <EntityType Name="DiccionarioRiesgosEspecificos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Causa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Categoria" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="SubCategoria" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Evaluacion_y_Analisis">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipoderiesgo" Type="varchar" MaxLength="255" />
+          <Property Name="CodigoRiesgo" Type="varchar" MaxLength="255" />
+          <Property Name="Evento" Type="varchar" MaxLength="255" />
+          <Property Name="Probabilidad" Type="int" />
+          <Property Name="Impacto" Type="int" />
+          <Property Name="NiveldeRiesgoInherente" Type="float" />
+          <Property Name="Codigo Control Actual" Type="varchar" MaxLength="50" />
+          <Property Name="DescripcionControlActual" Type="varchar" MaxLength="250" />
+          <Property Name="Disminución Probabilidad" Type="int" />
+          <Property Name="Disminución Impacto" Type="int" />
+          <Property Name="Probabilidad con Control Actual" Type="int" />
+          <Property Name="Impacto con Control Actual" Type="int" />
+          <Property Name="NiveldeRiesgoResidual1" Type="float" />
+          <Property Name="Código Control Propuesto" Type="varchar" MaxLength="50" />
+          <Property Name="Fecha de Aplicación" Type="varchar" MaxLength="50" />
+          <Property Name="Descripciondelcontrolpropuesto" Type="varchar" MaxLength="255" />
+          <Property Name="Disminución Probabilidad1" Type="int" />
+          <Property Name="Disminución Impacto1" Type="int" />
+          <Property Name="Probabilidad con control Propuesto" Type="int" />
+          <Property Name="ImpactoControlPropuesto" Type="int" />
+          <Property Name="Nivelderiesgoresidual2" Type="float" />
+        </EntityType>
+        <EntityType Name="Ident_Riesgos_Especificos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ObjetivoProceso" Type="varchar" MaxLength="250" />
+          <Property Name="CodigoRiesgo" Type="nvarchar" MaxLength="255" />
+          <Property Name="Causa específica" Type="nvarchar" MaxLength="255" />
+          <Property Name="Area de riesgo directo o indirecto" Type="nvarchar" MaxLength="255" />
+          <Property Name="Dependencia de riesgo _directo o indirecto" Type="nvarchar" MaxLength="255" />
+          <Property Name="DescripcióndelaCausa" Type="nvarchar" MaxLength="255" />
+          <Property Name="DescripcióndelosEventos" Type="nvarchar" MaxLength="255" />
+          <Property Name="DescripcióndelasConsecuencias" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fecha de identificación del riesgo" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Ident_Riesgos_Generales">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigodeRiesgo" Type="varchar" MaxLength="255" />
+          <Property Name="ObjetivoProceso" Type="varchar" MaxLength="150" />
+          <Property Name="CodigoCausa" Type="varchar" MaxLength="255" />
+          <Property Name="CausaFactor" Type="varchar" MaxLength="255" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="255" />
+          <Property Name="Fuente" Type="varchar" MaxLength="255" />
+          <Property Name="Categoría  del Factor" Type="varchar" MaxLength="255" />
+          <Property Name="SubCategoría del Factor" Type="varchar" MaxLength="255" />
+          <Property Name="DescripcióndelaCausa" Type="varchar" MaxLength="255" />
+          <Property Name="DescripcióndelEvento" Type="varchar" MaxLength="255" />
+          <Property Name="DescripcióndelaConsecuencia" Type="varchar" MaxLength="255" />
+          <Property Name="Fecha de identificación del riesgo" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FuncionarioResponsable" Type="varchar" MaxLength="250" />
+          <Property Name="AreadeAplicación" Type="varchar" MaxLength="250" />
+          <Property Name="DependenciaoCarrera" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Contraseña" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rol" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="GestionRiesgosModelStoreContainer">
+          <EntitySet Name="Administracion1" EntityType="Self.Administracion1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DiccionarioRiesgosEspecificos" EntityType="Self.DiccionarioRiesgosEspecificos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Evaluacion_y_Analisis" EntityType="Self.Evaluacion_y_Analisis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ident_Riesgos_Especificos" EntityType="Self.Ident_Riesgos_Especificos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ident_Riesgos_Generales" EntityType="Self.Ident_Riesgos_Generales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GestionRiesgosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Administracion1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Evento" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo_de_riesgo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Tolerancia_del_Riesgo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NiveldelRiesgo_inherente" Type="Double" />
+          <Property Name="NiveldelRiesgoResidual1" Type="Double" />
+          <Property Name="Grado_de_afectación" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Importancia_del_Objetivo_del_Proceso__actividades__tareas_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Variacióndelniveldelriesgoconcontroles" Type="Double" />
+          <Property Name="Análisis_costo_beneficio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Aceptabilidad_del_riesgo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Resultado_de_la_evaluación" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NiveldelRiesgoresidual2" Type="Double" />
+        </EntityType>
+        <EntityType Name="DiccionarioRiesgosEspecifico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Causa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Categoria" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SubCategoria" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Evaluacion_y_Analisis">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipoderiesgo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoRiesgo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Evento" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Probabilidad" Type="Int32" />
+          <Property Name="Impacto" Type="Int32" />
+          <Property Name="NiveldeRiesgoInherente" Type="Double" />
+          <Property Name="Codigo_Control_Actual" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DescripcionControlActual" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Disminución_Probabilidad" Type="Int32" />
+          <Property Name="Disminución_Impacto" Type="Int32" />
+          <Property Name="Probabilidad_con_Control_Actual" Type="Int32" />
+          <Property Name="Impacto_con_Control_Actual" Type="Int32" />
+          <Property Name="NiveldeRiesgoResidual1" Type="Double" />
+          <Property Name="Código_Control_Propuesto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_de_Aplicación" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Descripciondelcontrolpropuesto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Disminución_Probabilidad1" Type="Int32" />
+          <Property Name="Disminución_Impacto1" Type="Int32" />
+          <Property Name="Probabilidad_con_control_Propuesto" Type="Int32" />
+          <Property Name="ImpactoControlPropuesto" Type="Int32" />
+          <Property Name="Nivelderiesgoresidual2" Type="Double" />
+        </EntityType>
+        <EntityType Name="Ident_Riesgos_Especificos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ObjetivoProceso" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoRiesgo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Causa_específica" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Area_de_riesgo_directo_o_indirecto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Dependencia_de_riesgo__directo_o_indirecto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DescripcióndelaCausa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DescripcióndelosEventos" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DescripcióndelasConsecuencias" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha_de_identificación_del_riesgo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Ident_Riesgos_Generales">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigodeRiesgo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ObjetivoProceso" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoCausa" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CausaFactor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Fuente" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Categoría__del_Factor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SubCategoría_del_Factor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DescripcióndelaCausa" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DescripcióndelEvento" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DescripcióndelaConsecuencia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_de_identificación_del_riesgo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FuncionarioResponsable" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="AreadeAplicación" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DependenciaoCarrera" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Contraseña" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="GestionRiesgosEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Administracion1" EntityType="Self.Administracion1" />
+          <EntitySet Name="DiccionarioRiesgosEspecificos" EntityType="Self.DiccionarioRiesgosEspecifico" />
+          <EntitySet Name="Evaluacion_y_Analisis" EntityType="Self.Evaluacion_y_Analisis" />
+          <EntitySet Name="Ident_Riesgos_Especificos" EntityType="Self.Ident_Riesgos_Especificos" />
+          <EntitySet Name="Ident_Riesgos_Generales" EntityType="Self.Ident_Riesgos_Generales" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GestionRiesgosModelStoreContainer" CdmEntityContainer="GestionRiesgosEntities">
+          <EntitySetMapping Name="Administracion1">
+            <EntityTypeMapping TypeName="GestionRiesgosModel.Administracion1">
+              <MappingFragment StoreEntitySet="Administracion1">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Evento" ColumnName="Evento" />
+                <ScalarProperty Name="Tipo_de_riesgo" ColumnName="Tipo de riesgo" />
+                <ScalarProperty Name="Tolerancia_del_Riesgo" ColumnName="Tolerancia del Riesgo" />
+                <ScalarProperty Name="NiveldelRiesgo_inherente" ColumnName="NiveldelRiesgo inherente" />
+                <ScalarProperty Name="NiveldelRiesgoResidual1" ColumnName="NiveldelRiesgoResidual1" />
+                <ScalarProperty Name="Grado_de_afectación" ColumnName="Grado de afectación" />
+                <ScalarProperty Name="Importancia_del_Objetivo_del_Proceso__actividades__tareas_" ColumnName="Importancia del Objetivo del Proceso (actividades, tareas)" />
+                <ScalarProperty Name="Variacióndelniveldelriesgoconcontroles" ColumnName="Variacióndelniveldelriesgoconcontroles" />
+                <ScalarProperty Name="Análisis_costo_beneficio" ColumnName="Análisis costo/beneficio" />
+                <ScalarProperty Name="Aceptabilidad_del_riesgo" ColumnName="Aceptabilidad del riesgo" />
+                <ScalarProperty Name="Resultado_de_la_evaluación" ColumnName="Resultado de la evaluación" />
+                <ScalarProperty Name="NiveldelRiesgoresidual2" ColumnName="NiveldelRiesgoresidual2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DiccionarioRiesgosEspecificos">
+            <EntityTypeMapping TypeName="GestionRiesgosModel.DiccionarioRiesgosEspecifico">
+              <MappingFragment StoreEntitySet="DiccionarioRiesgosEspecificos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Causa" ColumnName="Causa" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="SubCategoria" ColumnName="SubCategoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Evaluacion_y_Analisis">
+            <EntityTypeMapping TypeName="GestionRiesgosModel.Evaluacion_y_Analisis">
+              <MappingFragment StoreEntitySet="Evaluacion_y_Analisis">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tipoderiesgo" ColumnName="Tipoderiesgo" />
+                <ScalarProperty Name="CodigoRiesgo" ColumnName="CodigoRiesgo" />
+                <ScalarProperty Name="Evento" ColumnName="Evento" />
+                <ScalarProperty Name="Probabilidad" ColumnName="Probabilidad" />
+                <ScalarProperty Name="Impacto" ColumnName="Impacto" />
+                <ScalarProperty Name="NiveldeRiesgoInherente" ColumnName="NiveldeRiesgoInherente" />
+                <ScalarProperty Name="Codigo_Control_Actual" ColumnName="Codigo Control Actual" />
+                <ScalarProperty Name="DescripcionControlActual" ColumnName="DescripcionControlActual" />
+                <ScalarProperty Name="Disminución_Probabilidad" ColumnName="Disminución Probabilidad" />
+                <ScalarProperty Name="Disminución_Impacto" ColumnName="Disminución Impacto" />
+                <ScalarProperty Name="Probabilidad_con_Control_Actual" ColumnName="Probabilidad con Control Actual" />
+                <ScalarProperty Name="Impacto_con_Control_Actual" ColumnName="Impacto con Control Actual" />
+                <ScalarProperty Name="NiveldeRiesgoResidual1" ColumnName="NiveldeRiesgoResidual1" />
+                <ScalarProperty Name="Código_Control_Propuesto" ColumnName="Código Control Propuesto" />
+                <ScalarProperty Name="Fecha_de_Aplicación" ColumnName="Fecha de Aplicación" />
+                <ScalarProperty Name="Descripciondelcontrolpropuesto" ColumnName="Descripciondelcontrolpropuesto" />
+                <ScalarProperty Name="Disminución_Probabilidad1" ColumnName="Disminución Probabilidad1" />
+                <ScalarProperty Name="Disminución_Impacto1" ColumnName="Disminución Impacto1" />
+                <ScalarProperty Name="Probabilidad_con_control_Propuesto" ColumnName="Probabilidad con control Propuesto" />
+                <ScalarProperty Name="ImpactoControlPropuesto" ColumnName="ImpactoControlPropuesto" />
+                <ScalarProperty Name="Nivelderiesgoresidual2" ColumnName="Nivelderiesgoresidual2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ident_Riesgos_Especificos">
+            <EntityTypeMapping TypeName="GestionRiesgosModel.Ident_Riesgos_Especificos">
+              <MappingFragment StoreEntitySet="Ident_Riesgos_Especificos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ObjetivoProceso" ColumnName="ObjetivoProceso" />
+                <ScalarProperty Name="CodigoRiesgo" ColumnName="CodigoRiesgo" />
+                <ScalarProperty Name="Causa_específica" ColumnName="Causa específica" />
+                <ScalarProperty Name="Area_de_riesgo_directo_o_indirecto" ColumnName="Area de riesgo directo o indirecto" />
+                <ScalarProperty Name="Dependencia_de_riesgo__directo_o_indirecto" ColumnName="Dependencia de riesgo _directo o indirecto" />
+                <ScalarProperty Name="DescripcióndelaCausa" ColumnName="DescripcióndelaCausa" />
+                <ScalarProperty Name="DescripcióndelosEventos" ColumnName="DescripcióndelosEventos" />
+                <ScalarProperty Name="DescripcióndelasConsecuencias" ColumnName="DescripcióndelasConsecuencias" />
+                <ScalarProperty Name="Fecha_de_identificación_del_riesgo" ColumnName="Fecha de identificación del riesgo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ident_Riesgos_Generales">
+            <EntityTypeMapping TypeName="GestionRiesgosModel.Ident_Riesgos_Generales">
+              <MappingFragment StoreEntitySet="Ident_Riesgos_Generales">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CodigodeRiesgo" ColumnName="CodigodeRiesgo" />
+                <ScalarProperty Name="ObjetivoProceso" ColumnName="ObjetivoProceso" />
+                <ScalarProperty Name="CodigoCausa" ColumnName="CodigoCausa" />
+                <ScalarProperty Name="CausaFactor" ColumnName="CausaFactor" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Fuente" ColumnName="Fuente" />
+                <ScalarProperty Name="Categoría__del_Factor" ColumnName="Categoría  del Factor" />
+                <ScalarProperty Name="SubCategoría_del_Factor" ColumnName="SubCategoría del Factor" />
+                <ScalarProperty Name="DescripcióndelaCausa" ColumnName="DescripcióndelaCausa" />
+                <ScalarProperty Name="DescripcióndelEvento" ColumnName="DescripcióndelEvento" />
+                <ScalarProperty Name="DescripcióndelaConsecuencia" ColumnName="DescripcióndelaConsecuencia" />
+                <ScalarProperty Name="Fecha_de_identificación_del_riesgo" ColumnName="Fecha de identificación del riesgo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="GestionRiesgosModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FuncionarioResponsable" ColumnName="FuncionarioResponsable" />
+                <ScalarProperty Name="AreadeAplicación" ColumnName="AreadeAplicación" />
+                <ScalarProperty Name="DependenciaoCarrera" ColumnName="DependenciaoCarrera" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
